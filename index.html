@@ -1,640 +1,544 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>𝗦𝗧𝗢𝗖𝗞 𝗟𝗘𝗔𝗥𝗡𝗘𝗥 </title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1126938976439445');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1126938976439445&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
- 
+  <title>Gautam Kumar Jha - Stock Market Learning Community</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1126938976439445');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1126938976439445&ev=PageView&noscript=1"
+    />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Serif fonts (Cinzel / Playfair) + Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serifTitle: ['Cinzel', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gold: {
+              300: '#FDE047',
+              400: '#FACC15',
+              500: '#F5B014',
+              600: '#D97706',
+              accent: '#f7c232',
+            },
+            dark: {
+              base: '#080c14',
+              card: '#0c121e',
+              inner: '#090e18',
+              border: '#1e293b'
+            }
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 2.8s ease-in-out infinite',
+            'shimmer': 'shimmer 2.6s infinite linear',
+            'radar': 'radar 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { filter: 'drop-shadow(0 0 15px rgba(245, 176, 20, 0.45))' },
+              '50%': { filter: 'drop-shadow(0 0 30px rgba(245, 176, 20, 0.85))' }
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-150%)' },
+              '100%': { transform: 'translateX(150%)' }
+            },
+            radar: {
+              '0%': { transform: 'scale(0.95)', opacity: '0.8' },
+              '100%': { transform: 'scale(2.2)', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
+    /* Exact background dark grid pattern from screenshots */
     body {
-      background: #f4f7fb;
-      color: #1e293b;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 12px;
+      background-color: #070b13;
+      background-image: 
+        radial-gradient(ellipse 80% 350px at 50% 0px, rgba(245, 176, 20, 0.14) 0%, transparent 75%),
+        radial-gradient(circle 300px at 50% 280px, rgba(14, 165, 233, 0.05) 0%, transparent 80%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Mobile Container */
-    .mobile-card {
-      width: 100%;
-      max-width: 420px;
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 24px 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
+    /* Soft ambient card glow & borders */
+    .card-glow-outline {
+      border: 1px solid rgba(245, 176, 20, 0.28);
+      box-shadow: 0 0 45px -8px rgba(245, 176, 20, 0.16), inset 0 0 15px rgba(245, 176, 20, 0.04);
     }
 
-    /* Live Online Badge */
-    .online-badge {
-      background-color: #e6f9ed;
-      color: #16a34a;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 20px;
+    .pill-border-gold {
+      border: 1px solid rgba(245, 176, 20, 0.35);
+      box-shadow: 0 0 20px -3px rgba(245, 176, 20, 0.18);
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-      animation: pulse 1.6s infinite;
+    /* Golden Avatar circular glow */
+    .avatar-radiance {
+      box-shadow: 0 0 35px 2px rgba(245, 176, 20, 0.65), 0 0 75px 10px rgba(245, 176, 20, 0.25);
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-      }
-      70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
-      }
-      100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
-      }
+    /* Vibrant CTA Gold Glow */
+    .cta-glow-btn {
+      background: linear-gradient(135deg, #FFC837 0%, #FF8008 100%);
+      box-shadow: 0 4px 28px rgba(245, 176, 20, 0.6), 0 0 50px rgba(245, 176, 20, 0.3);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* Profile / Logo Avatar */
-    .avatar-wrapper {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      margin-bottom: 16px;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    .cta-glow-btn:hover {
+      box-shadow: 0 6px 36px rgba(245, 176, 20, 0.75), 0 0 65px rgba(245, 176, 20, 0.45);
+      transform: translateY(-1px);
     }
-
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #e2e8f0;
-      border: 3px solid #fff;
-    }
-
-    /* Main Headings */
-    .main-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.35;
-      letter-spacing: -0.2px;
-      margin-bottom: 8px;
-    }
-
-    .sub-title {
-      font-size: 13px;
-      color: #2563eb;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* Rating Section */
-    .stars {
-      color: #f59e0b;
-      font-size: 16px;
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-    }
-
-    .rating-text {
-      font-size: 12px;
-      color: #64748b;
-      font-weight: 500;
-      margin-bottom: 14px;
-    }
-
-    /* Countdown Timer Box */
-    .timer-alert {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .timer-count {
-      color: #dc2626;
-      font-weight: 800;
-      font-size: 15px;
-    }
-
-    /* Action Button */
-    .cta-btn {
-      width: 100%;
-      background: linear-gradient(180deg, #1d4ed8 0%, #2563eb 50%, #1e40af 100%);
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      margin-bottom: 20px;
-    }
-
-    .cta-btn:active {
+    .cta-glow-btn:active {
       transform: scale(0.98);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 2px 16px rgba(245, 176, 20, 0.5);
     }
 
-    /* Stats Grid */
-    .stats-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      width: 100%;
-      margin-bottom: 24px;
-    }
-
-    .stat-card {
-      background: #f8fafc;
-      border: 1px solid #edf2f7;
-      border-radius: 14px;
-      padding: 12px 6px;
-    }
-
-    .stat-val {
-      font-size: 18px;
-      font-weight: 800;
-      color: #2563eb;
-      line-height: 1.2;
-    }
-
-    .stat-lbl {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    /* Callout Titles */
-    .section-headline {
-      font-size: 16px;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-
-    .section-headline span {
-      color: #2563eb;
-    }
-
-    .section-sub {
-      font-size: 13px;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 4px;
-    }
-
-    .section-desc {
-      font-size: 12px;
-      color: #64748b;
-      margin-bottom: 16px;
-    }
-
-    /* Alert / Promo Strip */
-    .promo-banner {
-      width: 100%;
-      background: #fff7ed;
-      border: 1px dashed #fdba74;
-      color: #ea580c;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* Features List */
-    .feature-list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .feature-item {
-      background: #f8fafc;
-      border: 1px solid #f1f5f9;
-      padding: 14px 16px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-      font-size: 13px;
-      font-weight: 600;
-      color: #334155;
-    }
-
-    .feature-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: #eff6ff;
-      color: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
-    /* Disclaimer & Links */
-    .disclaimer-text {
-      font-size: 10.5px;
-      color: #94a3b8;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 18px;
-      border-top: 1px solid #f1f5f9;
-      padding-top: 16px;
-      width: 100%;
-    }
-
-    .footer-link {
-      font-size: 12px;
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    .footer-link:hover {
-      text-decoration: underline;
-    }
-
-    /* POPUP MODAL STYLES */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(4px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    /* Accordion transitions */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
       opacity: 0;
-      visibility: hidden;
-      transition: all 0.25s ease;
-      padding: 16px;
+      transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
     }
-
-    .modal-overlay.active {
+    .faq-answer.open {
+      max-height: 180px;
       opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-box {
-      background: #ffffff;
-      width: 100%;
-      max-width: 400px;
-      max-height: 80vh;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.25s ease;
-    }
-
-    .modal-overlay.active .modal-box {
-      transform: translateY(0);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #f1f5f9;
       padding-bottom: 12px;
-      margin-bottom: 16px;
-    }
-
-    .modal-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .close-btn {
-      background: #f1f5f9;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 16px;
-      color: #64748b;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-body {
-      overflow-y: auto;
-      font-size: 13px;
-      color: #475569;
-      line-height: 1.6;
-      text-align: left;
-    }
-
-    .modal-body p {
-      margin-bottom: 12px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: #f8fafc;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .contact-item i {
-      color: #2563eb;
-      font-size: 18px;
+      padding-top: 4px;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col items-center justify-start px-3.5 py-4">
 
-  <div class="mobile-card">
-    <!-- Live Online Badge -->
-    <div class="online-badge">
-      <span class="pulse-dot"></span>
-      5,947 Traders Online Now
-    </div>
+  <!-- Mobile Container - Pixel proportioned (max 420px) -->
+  <main class="w-full max-w-[420px] flex flex-col gap-3 relative pb-10">
 
-    <!-- LOGO / PROFILE IMAGE -->
-    <div class="avatar-wrapper">
-      <img src="Gautam01.jpeg" alt="Stock Learner Logo" class="avatar-img">
-    </div>
-
-    <!-- Title & Subtitle -->
-    <h1 class="main-title">𝗦𝗧𝗢𝗖𝗞 𝗟𝗘𝗔𝗥𝗡𝗘𝗥<br><span style="font-size:15px; font-weight:700;"></span></h1>
-    <div class="sub-title">
-      🏆 India's No.1 Stock Market Channel
-    </div>
-
-    <!-- Ratings -->
-    <div class="stars">★★★★★</div>
-    <div class="rating-text">4.9/5 (2340 Reviews)</div>
-
-    <!-- Visual Countdown Banner -->
-    <div class="timer-alert">
-      <i class="fa-solid fa-clock"></i>
-      Redirecting in <span id="countdown" class="timer-count">10</span> seconds...
-    </div>
-
-    <!-- Telegram CTA Button 1 -->
-    <a href="https://t.me/+Aq95pEkdyY1lZjY1" target="_blank" class="cta-btn">
-      Join Free Telegram Channel &rarr;
-    </a>
-
-    <!-- Stats Grid -->
-    <div class="stats-container">
-      <div class="stat-card">
-        <div class="stat-val">50K+</div>
-        <div class="stat-lbl">Members</div>
+    <!-- TOP BAR 1: MARKET DESK LIVE -->
+    <header class="w-full bg-[#0d1424]/90 backdrop-blur-md pill-border-gold rounded-full px-4 py-2.5 flex items-center justify-between shadow-lg">
+      <!-- Live Indicator + Text -->
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-radar absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#f5b014] shadow-[0_0_8px_#f5b014]"></span>
+        </span>
+        <span class="text-[12px] font-extrabold tracking-wider text-gold-400 font-serifTitle uppercase">
+          MARKET DESK LIVE
+        </span>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">5+</div>
-        <div class="stat-lbl">Years</div>
+
+      <!-- Bullish Tag Badge -->
+      <div class="flex items-center gap-1.5 bg-[#03201a] border border-emerald-500/50 rounded-full px-2.5 py-1">
+        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.314 4.314a.75.75 0 001.06 0l7.376-7.376m0 0H16.5m5.25 0V9"/>
+        </svg>
+        <span class="text-[10px] font-extrabold tracking-wide text-emerald-400">BULLISH</span>
+        <span class="text-[9px] font-medium text-slate-300 ml-0.5">NIFTY & BANKNIFTY</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">95%</div>
-        <div class="stat-lbl">Accuracy</div>
+    </header>
+
+    <!-- TOP BAR 2: EXCLUSIVE VIP ACCESS & COUNTDOWN -->
+    <section aria-label="Urgency Timer" class="w-full bg-[#0d1424]/90 backdrop-blur-md pill-border-gold rounded-2xl px-4 py-3 flex items-center justify-between">
+      <div>
+        <div class="text-[10.5px] font-extrabold tracking-wider text-gold-400 font-serifTitle uppercase">
+          EXCLUSIVE VIP ACCESS
+        </div>
+        <div class="text-[12.5px] font-medium text-slate-100 mt-0.5">
+          Free Joining Ends In:
+        </div>
       </div>
-    </div>
 
-    <!-- Mid Section Titles -->
-    <div class="section-headline">Get <span>FREE</span> Daily Calls</div>
-    <div class="section-sub">for NIFTY, BANKNIFTY & SENSEX</div>
-    <div class="section-desc">Join thousands of traders getting daily market analysis</div>
-
-    <!-- Limited Access Banner -->
-    <div class="promo-banner">
-      🔥 Limited FREE Access Available
-    </div>
-
-    <!-- Features List -->
-    <div class="feature-list">
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <span>Daily Nifty & BankNifty Levels</span>
+      <!-- Sleek Digital Timer Pill -->
+      <div class="bg-[#070b13] border border-gold-500/50 rounded-full px-3.5 py-1.5 flex items-center gap-2 shadow-[inset_0_0_10px_rgba(245,176,20,0.15)]">
+        <!-- Sand Timer / Hourglass Icon -->
+        <svg class="w-3.5 h-3.5 text-gold-400" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zM10 6.5L8 4.5V4h8v.5l-2 2-2 2-2-2z"/>
+        </svg>
+        <span id="countdownDisplay" class="font-mono text-sm font-bold tracking-widest text-gold-300">08 : 22</span>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <span>Educational Market Analysis</span>
+    </section>
+
+    <!-- MAIN HERO CARD -->
+    <section class="w-full bg-[#0c1322]/95 backdrop-blur-xl card-glow-outline rounded-[28px] p-5 sm:p-6 flex flex-col items-center text-center relative overflow-hidden">
+      
+      <!-- Top Soft Radial Flare -->
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-24 bg-gold-500/20 blur-[45px] pointer-events-none rounded-full"></div>
+
+      <!-- Circular Glowing Profile Picture -->
+      <div class="relative mt-2 mb-4">
+        <!-- Radiance Aura Ring -->
+        <div class="w-28 h-28 rounded-full p-[3px] bg-gradient-to-tr from-yellow-300 via-amber-400 to-yellow-500 avatar-radiance animate-glow-pulse">
+          <!-- Inner circle wrapper -->
+          <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-[#090f1d]">
+            <!-- Red-shirt trader photograph matching reference pose -->
+            <img 
+              src="Gautam01.jpeg" 
+              alt="Gautam Kumar Jha sitting in armchair with tablet" 
+              class="w-full h-full object-cover object-top"
+              onerror="this.src='Gautam01.jpeg'"
+            >
+          </div>
+        </div>
+
+        <!-- Verified Gold Checkmark Badge -->
+        <div class="absolute bottom-0 right-1 bg-gradient-to-br from-gold-400 to-amber-500 text-slate-950 rounded-full p-1 border-2 border-[#0c1322] shadow-lg flex items-center justify-center">
+          <svg class="w-4 h-4 fill-current stroke-current stroke-[0.8]" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
-        <span>50,000+ Subscribers Community</span>
+
+      <!-- Main Headline: GAUTAM KUMAR JHA -->
+      <h1 class="text-2xl sm:text-[26px] font-black tracking-wider text-gold-400 font-serifTitle uppercase drop-shadow">
+        GAUTAM KUMAR JHA
+      </h1>
+
+      <!-- Subtitle with Medal Icon -->
+      <div class="flex items-center gap-1.5 mt-2 text-gold-300 text-xs sm:text-[13px] font-semibold">
+        <!-- Medal Icon -->
+        <svg class="w-3.5 h-3.5 text-gold-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2a5 5 0 100 10 5 5 0 000-10zm-3 12.6l-2.4 7.4 5.4-3.5 5.4 3.5-2.4-7.4a7 7 0 01-6 0z"/>
+        </svg>
+        <span>Stock Market Learning & Chart Analysis Community</span>
       </div>
-    </div>
 
-    <!-- Telegram CTA Button 2 -->
-    <a href="https://t.me/+Aq95pEkdyY1lZjY1" target="_blank" class="cta-btn">
-      Join Free Telegram Channel &rarr;
-    </a>
-
-    <!-- Disclaimer Text -->
-    <div class="disclaimer-text">
-      <strong>Disclaimer:</strong> This channel is for educational purposes only. Trading involves market risk. Please consult your financial advisor before making investment decisions.
-    </div>
-
-    <!-- Popup Triggers Footer Links -->
-    <div class="footer-links">
-      <button class="footer-link" onclick="openModal('terms')">Terms & Conditions</button>
-      <button class="footer-link" onclick="openModal('about')">About Us</button>
-      <button class="footer-link" onclick="openModal('disclaimer')">Disclaimer</button>
-      <button class="footer-link" onclick="openModal('contact')">Contact Us</button>
-    </div>
-  </div>
-
-  <!-- POPUP MODAL CONTAINER -->
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div class="modal-title" id="modalTitle">Modal Title</div>
-        <button class="close-btn" onclick="closeModal()">&times;</button>
+      <!-- Active Traders Pill -->
+      <div class="mt-3.5 bg-[#070c16] border border-gold-500/35 rounded-full px-4 py-1.5 flex items-center justify-center">
+        <div class="flex items-center text-slate-300 text-xs font-semibold gap-1.5">
+          <!-- Multi-user avatar icon -->
+          <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+          </svg>
+          <span><strong class="text-gold-400 font-bold">31, 424</strong> Active Traders Joined</span>
+        </div>
       </div>
-      <div class="modal-body" id="modalBody">
-        <!-- Content will load dynamically -->
+
+      <!-- Bio Pitch in Hinglish -->
+      <p class="text-slate-300 text-[13px] leading-relaxed mt-4 font-normal text-center px-1">
+        Stock Market mein consistency aur discipline seekhein! Get daily 
+        <strong class="text-gold-400 font-bold">Nifty & Bank Nifty Price Action Charts</strong>, 
+        Key Breakout Levels aur Strict Risk Management guidelines directly on Telegram.
+      </p>
+
+      <!-- 2x2 FEATURES GRID -->
+      <div class="grid grid-cols-2 gap-2.5 w-full mt-5 text-left">
+        
+        <!-- Box 1: Chart Analysis -->
+        <div class="bg-[#0f172a]/95 border border-slate-800/80 rounded-xl p-3 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-gold-400 shrink-0">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99L21.99 11C21.47 5.92 17.58 2 13 2zm0 11.01V22c4.58 0 8.47-3.92 8.99-9H13z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-bold text-xs sm:text-[13px] leading-tight">Chart Analysis</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">Nifty/BankNifty</div>
+          </div>
+        </div>
+
+        <!-- Box 2: Risk Control -->
+        <div class="bg-[#0f172a]/95 border border-slate-800/80 rounded-xl p-3 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-bold text-xs sm:text-[13px] leading-tight">Risk Control</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">Position Sizing</div>
+          </div>
+        </div>
+
+        <!-- Box 3: Breakouts -->
+        <div class="bg-[#0f172a]/95 border border-slate-800/80 rounded-xl p-3 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-gold-400 shrink-0">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 2v11h3v9l7-12h-4l3-8z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-bold text-xs sm:text-[13px] leading-tight">Breakouts</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">Level Study</div>
+          </div>
+        </div>
+
+        <!-- Box 4: Educational -->
+        <div class="bg-[#0f172a]/95 border border-slate-800/80 rounded-xl p-3 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/15 border border-sky-400/30 flex items-center justify-center text-sky-400 shrink-0">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-bold text-xs sm:text-[13px] leading-tight">Educational</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">Trading Psychology</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HUGE GLOWING CTA BUTTON -->
+      <a 
+        href="https://t.me/+Aq95pEkdyY1lZjY1" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onclick="if(typeof fbq === 'function') { fbq('track', 'Lead'); }"
+        class="mt-5 w-full py-4 px-6 rounded-2xl cta-glow-btn text-slate-950 font-serifTitle font-extrabold tracking-wider text-base sm:text-lg flex items-center justify-center gap-3 relative overflow-hidden group select-none cursor-pointer"
+      >
+        <!-- Continuous shimmer reflection bar -->
+        <span class="absolute inset-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-[-20deg] animate-shimmer pointer-events-none"></span>
+
+        <!-- Telegram Icon -->
+        <div class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center shrink-0">
+          <svg class="w-4.5 h-4.5 text-black" fill="currentColor" viewBox="0 0 24 24">
+            <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.436z"/>
+          </svg>
+        </div>
+        <span class="font-extrabold uppercase drop-shadow-sm">JOIN TELEGRAM CHANNEL</span>
+      </a>
+
+      <!-- Trust Badges below CTA -->
+      <div class="flex items-center justify-center gap-3 mt-3.5 text-[11px] font-medium text-slate-300">
+        <span class="flex items-center gap-1.5 text-emerald-400">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          100% Free Channel
+        </span>
+        <span class="text-slate-600">•</span>
+        <span class="flex items-center gap-1.5 text-gold-400">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+          </svg>
+          No Spam Guarantee
+        </span>
+      </div>
+
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION (Screenshot 2) -->
+    <section class="w-full bg-[#0c1322]/90 backdrop-blur-md card-glow-outline rounded-[24px] p-5 shadow-xl">
+      <!-- Section Title -->
+      <div class="flex items-center gap-2 mb-3.5">
+        <div class="w-4 h-4 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-[10px] font-bold">?</div>
+        <h2 class="text-xs font-black tracking-wider text-gold-400 uppercase font-serifTitle">
+          FREQUENTLY ASKED QUESTIONS
+        </h2>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="space-y-2.5">
+
+        <!-- Question 1 -->
+        <div class="border border-slate-800/90 rounded-xl bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-4 py-3 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-xs sm:text-[13px] font-semibold text-slate-100 pr-2">Kya is Telegram Channel ko join karne ka koi fees hai?</span>
+            <svg class="faq-icon w-4 h-4 text-gold-400 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-4 text-slate-400 text-xs leading-relaxed border-t border-slate-800/40">
+            Bilkul nahi! Ye channel 100% free hai learning aur educational market updates ke liye. Yahan koi hidden fee ya VIP charges nahi hain.
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="border border-slate-800/90 rounded-xl bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-4 py-3 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-xs sm:text-[13px] font-semibold text-slate-100 pr-2">Kya yahan beginners bhi stock market seekh sakte hain?</span>
+            <svg class="faq-icon w-4 h-4 text-gold-400 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-4 text-slate-400 text-xs leading-relaxed border-t border-slate-800/40">
+            Haan, basic price action, support & resistance aur risk management simple tareeqe se explain kiya jata hai taaki beginners bhi easily seekh sakein.
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="border border-slate-800/90 rounded-xl bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-4 py-3 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-xs sm:text-[13px] font-semibold text-slate-100 pr-2">Kya aap SEBI registered advisor hain?</span>
+            <svg class="faq-icon w-4 h-4 text-gold-400 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-4 text-slate-400 text-xs leading-relaxed border-t border-slate-800/40">
+            Nahi, hum SEBI registered advisor nahi hain. Saari updates strictly educational aur learning purpose ke liye hain. Koi buy/sell recommendation nahi di jaati.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER / COMPLIANCE (Exact match with Screenshot 2) -->
+    <footer class="w-full pt-1 flex flex-col items-center text-center space-y-3.5">
+      
+      <!-- SEBI Compliance & Risk Disclaimer -->
+      <p class="text-[11px] leading-relaxed text-slate-400 px-2 font-normal">
+        <strong class="text-slate-200 font-bold">SEBI Compliance & Risk Disclaimer:</strong> This Telegram channel is strictly for <strong class="text-slate-200 font-semibold">Educational & Informational Purposes Only</strong>. We are NOT SEBI Registered Analysts or Financial Advisors. Stock market trading, Futures & Options carry high financial risk. Past performance does not guarantee future returns. Please consult your certified financial advisor before making any investments.
+      </p>
+
+      <!-- Meta Platforms Disclaimer -->
+      <p class="text-[10px] leading-relaxed text-slate-500 px-3">
+        This site is not a part of the Facebook website or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta in any way. FACEBOOK is a trademark of Meta Platforms, Inc.
+      </p>
+
+      <!-- Agency Pill -->
+      <div>
+        <div class="inline-flex items-center gap-2 bg-[#090e1c] border border-gold-500/40 rounded-full px-4 py-1.5 text-xs font-bold text-gold-400 tracking-wide shadow-sm">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M21.707 10.293l-4-4A1 1 0 0016 7v3H8a1 1 0 00-1 1v2a1 1 0 001 1h8v3a1 1 0 001.707.707l4-4a1 1 0 000-1.414zM4 11h2v2H4z"/>
+          </svg>
+          <span>Ads By AD BUILD AGENCY</span>
+        </div>
+      </div>
+
+      <!-- Legal Links with Modal Trigger -->
+      <div class="flex items-center justify-center gap-3 text-xs text-slate-400">
+        <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Privacy Policy</button>
+        <span class="text-slate-600">•</span>
+        <button type="button" onclick="openPolicyModal('terms')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Terms of Service</button>
+        <span class="text-slate-600">•</span>
+        <button type="button" onclick="openPolicyModal('disclaimer')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Disclaimer</button>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-[11px] text-slate-500 font-mono">
+        © 2026 GAUTAM KUMAR JHA. All rights reserved.
+      </div>
+
+    </footer>
+
+  </main>
+
+  <!-- Interactive Modal for Legal Links -->
+  <div id="policyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0c1322] border border-gold-500/40 rounded-2xl max-w-sm w-full p-5 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 id="modalHeading" class="text-sm font-bold text-gold-400 font-serifTitle">Policy Document</h3>
+        <button type="button" onclick="closePolicyModal()" class="text-slate-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div id="modalDescription" class="text-slate-300 text-xs leading-relaxed py-4 space-y-2">
+        <!-- Content added via JavaScript -->
+      </div>
+      <div class="pt-2 border-t border-slate-800 flex justify-end">
+        <button type="button" onclick="closePolicyModal()" class="px-3.5 py-1.5 bg-gold-500 text-slate-950 font-bold rounded-lg text-xs hover:bg-gold-400 transition">
+          Close
+        </button>
       </div>
     </div>
   </div>
 
   <script>
-    // AUTO REDIRECT LOGIC (10 Seconds)
-    const targetUrl = "https://t.me/+Aq95pEkdyY1lZjY1";
-    let timeLeft = 10;
-    const countdownEl = document.getElementById("countdown");
+    // 1. LIVE COUNTDOWN TIMER (08:22)
+    let totalSecondsRemaining = 8 * 60 + 22;
 
-    const timer = setInterval(() => {
-      timeLeft--;
-      if (countdownEl) {
-        countdownEl.innerText = timeLeft;
-      }
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        window.location.href = targetUrl;
-      }
-    }, 1000);
+    function tickTimer() {
+      const minutes = Math.floor(totalSecondsRemaining / 60);
+      const seconds = totalSecondsRemaining % 60;
+      
+      const mStr = minutes < 10 ? '0' + minutes : minutes;
+      const sStr = seconds < 10 ? '0' + seconds : seconds;
 
-    // Content for Popups
-    const modalData = {
-      terms: {
-        title: "Terms & Conditions",
-        content: `
-          <p>Welcome to <strong>𝗦𝗧𝗢𝗖𝗞 𝗟𝗘𝗔𝗥𝗡𝗘𝗥 ( HALAL WORK )</strong>.</p>
-          <p>1. <strong>Educational Content:</strong> All content, research, and analysis shared on this platform/channel are strictly for educational and informational purposes.</p>
-          <p>2. <strong>No Financial Advice:</strong> We do not provide guaranteed returns, portfolio management, or personal financial advice.</p>
-          <p>3. <strong>User Responsibility:</strong> Any trades or investments made based on our analysis are purely at your own risk and responsibility.</p>
-        `
+      const display = document.getElementById('countdownDisplay');
+      if (display) {
+        display.textContent = `${mStr} : ${sStr}`;
+      }
+
+      if (totalSecondsRemaining > 0) {
+        totalSecondsRemaining--;
+      } else {
+        totalSecondsRemaining = 8 * 60 + 22; // Loop for urgency
+      }
+    }
+    setInterval(tickTimer, 1000);
+    tickTimer();
+
+    // 2. ACCORDION LOGIC
+    function toggleAccordion(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isAlreadyOpen = answer.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+
+      // Open selected if not previously open
+      if (!isAlreadyOpen) {
+        answer.classList.add('open');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // 3. POLICY MODAL LOGIC
+    const legalContents = {
+      privacy: {
+        title: "Privacy Policy",
+        desc: "We prioritize user privacy. No personal identifying information is harvested directly on this preview page. External interactions on Telegram are governed by Telegram's terms."
       },
-      about: {
-        title: "About Us",
-        content: `
-          <p><strong>𝗦𝗧𝗢𝗖𝗞 𝗟𝗘𝗔𝗥𝗡𝗘𝗥</strong> is one of India's trusted market analysis and educational communities focused on Ethical & Halal trading principles in Stock Markets.</p>
-          <p>With over <strong>5+ years of experience</strong> and <strong>50,000+ active members</strong>, our goal is to help traders understand price action, Nifty/BankNifty levels, and market psychology.</p>
-        `
+      terms: {
+        title: "Terms of Service",
+        desc: "All educational materials, commentary, and chart setups shared within the community are meant for personal study and paper trading only. Users bear sole liability for live capital deployments."
       },
       disclaimer: {
-        title: "Disclaimer",
-        content: `
-          <p><strong>Risk Warning:</strong> Trading in Stock, Futures, Options, and Commodities involves substantial risk of loss and is not suitable for every investor.</p>
-          <p>Valuations can fluctuate, and investors may lose more than their original investment.</p>
-          <p>We are not SEBI registered financial advisors (unless specified). Please consult a certified financial advisor before taking any financial steps.</p>
-        `
-      },
-      contact: {
-        title: "Contact Us",
-        content: `
-          <p>If you have any questions or queries, feel free to reach out to us:</p>
-          <div class="contact-item">
-            <i class="fa-brands fa-telegram"></i>
-            <div><strong>Telegram Join Link:</strong><br><a href="https://t.me/+Aq95pEkdyY1lZjY1" target="_blank" style="color:#2563eb;">Click Here to Join</a></div>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <div><strong>Email Support:</strong><br>contact@stocklearner.com</div>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-clock"></i>
-            <div><strong>Support Hours:</strong><br>Mon - Sat (9:00 AM - 6:00 PM)</div>
-          </div>
-        `
+        title: "Full Disclaimer & Risk Notice",
+        desc: "Gautam Kumar Jha and affiliated operators are NOT registered with SEBI under SEBI (Research Analysts) Regulations, 2014. Stock market trading entails high risk of capital loss."
       }
     };
 
-    function openModal(type) {
-      const data = modalData[type];
-      if (!data) return;
-      
-      document.getElementById('modalTitle').innerText = data.title;
-      document.getElementById('modalBody').innerHTML = data.content;
-      
-      const modal = document.getElementById('modalOverlay');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+    function openPolicyModal(type) {
+      const modal = document.getElementById('policyModal');
+      const heading = document.getElementById('modalHeading');
+      const desc = document.getElementById('modalDescription');
 
-    function closeModal() {
-      const modal = document.getElementById('modalOverlay');
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    function closeModalOnOverlay(e) {
-      if (e.target.id === 'modalOverlay') {
-        closeModal();
+      if (legalContents[type]) {
+        heading.textContent = legalContents[type].title;
+        desc.textContent = legalContents[type].desc;
+        modal.classList.remove('hidden');
       }
     }
+
+    function closePolicyModal() {
+      document.getElementById('policyModal').classList.add('hidden');
+    }
   </script>
+
 </body>
 </html>
